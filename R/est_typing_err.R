@@ -9,7 +9,8 @@
 #' @details 
 #' The function calcualtes (Bayesian posterior) estimates for the expected number of errors (\code{quantity='mean'}) or the 
 #' upper bound of the 95\% (Bayesian) credible interval (\code{quantity='95q'}) in the population of entered values when a 
-#' random sample of \code{S} entered values contains \code{F} errors. 
+#' random sample of \code{S} entered values contains \code{F} errors. For a discussion on the type of inference, see Winkler 
+#' et al. (2002).
 #' 
 #' The calculations are done assuming a Beta-distribution prior over the proportion of errors for all entered values. The 
 #' users must supply hyper-parameters for the Beta-prior. The function provides two informed default hyper-parameter sets. 
@@ -22,6 +23,7 @@
 #' and beta hyper-parameters for the Beta prior (the output of \code{\link{calc_beta_param}} can be used). 
 #' 
 #' 
+#' 
 #' @return value or vector of the requested quanty/ies. 
 #' 
 #' @seealso \code{\link{calc_beta_param}}
@@ -29,10 +31,16 @@
 #' @references 
 #'  Baddeley, A. D., and D. J. A. Longman. 1978. "The influence of length and frequency of training session on the rate of learning to type." Ergonomics 21(8), 627-635.
 #' 
+#'  Winkler, Robert L. and Smith, James E. and Fryback, Dennis G. 2002. "The Role of Informative Priors in Zero-Numerator Problems: Being Conservative Versus Being Candid". The American Statistician 56(1), 1-4.
+#' 
 #' @examples 
 #'  \dontrun{
 #' 
 #'  est_typing_err(S=20, F=0, prior='postmen', quantity='95q')
+#' 
+#'  Example from Winkler et al. (2002) p.3:
+#' 
+#'  est_typing_err(167, 0, prior=c('alpha'=0.042, 'beta'=27.96), quantity='param' ) 
 #' 
 #'  } 
 #' 
