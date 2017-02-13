@@ -13,7 +13,7 @@ Feedback is very welcome!
 	Package: \tab datatools\cr
 	Type: \tab Package\cr
 	Version: \tab 0.0.0.9000\cr
-	Date: \tab 2016-12-11\cr
+	Date: \tab 2017-02-11\cr
 	License: \tab  GPL-3\cr
 	}
 }
