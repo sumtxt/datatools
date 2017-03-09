@@ -32,7 +32,6 @@
 #' table(OCAD)
 #'
 #' @export
-#'
 expand_df <- function(x,
                        col.exp,
                        na.strings = "NA",
