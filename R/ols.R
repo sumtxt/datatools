@@ -4,7 +4,8 @@
 #' @param HC the HC matrix to be used for the robust standard error calculations 
 #' @param cluster the name of the cluster variable in the \code{data.frame} passed to \code{lm} 
 #' 		for the cluster robust standard error calculations 
-#' @param estimates return estimates in a \code{data.frame} or \code{coeftest} object (default)
+#' @param data_frame return estimates in a \code{data.frame} or \code{coeftest} object(default)
+#' @param as_attr return \eqn{R^2} and \eqn{N} as column or attributes when \code{data_frame=TRUE}? 
 #'
 #' @details 
 #' This function calls \code{lm()} and passes the model object further to \code{coeftest()} to 
@@ -17,7 +18,7 @@
 #' To reproduce STATA's default robust standard errors use \code{HC="HC1"}, to reproduce the 
 #' STATA cluster robust standard errors (\code{, vce(cluster ___)}), supply the name of the cluster variable. 
 #' 
-#' @return a \code{data.frame} if \code{estimates=TRUE} otherwise a \code{coeftest} object. 
+#' @return a \code{data.frame} if \code{data_frame=TRUE} otherwise a \code{coeftest} object. 
 #' The \code{data.frame} object has two additional attributes "N" (the number of observations) and 
 #' "r2" the \eqn{R^2} of the model.
 #'
@@ -40,7 +41,7 @@
 #'
 #'
 #' @export
-ols <- function(..., HC="const", cluster=NULL, estimates=FALSE){
+ols <- function(..., HC="const", cluster=NULL, data_frame=FALSE, as_attr=TRUE){
 	m <- do.call(lm, list(...) )
 	N <- nobs(m)
 	r2 <- summary(m)$r.squared
@@ -51,10 +52,15 @@ ols <- function(..., HC="const", cluster=NULL, estimates=FALSE){
 			cluster, envir=environment())[,cluster]
 		m <- cl(fm=m,cluster=clustvar)
 	}
-	if( estimates==TRUE) {
+	if( data_frame==TRUE) {
 		res <- get_lmHC_est(m)
-		attr(res, "r2") <- r2
-		attr(res, "N") <- N
+		if (as_attr==TRUE){
+			attr(res, "r2") <- r2
+			attr(res, "N") <- N
+		} else {
+			res$r2 <- r2
+			res$N <- N
+		}
 		return(res)
 		}
 	else return(m)

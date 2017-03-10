@@ -4,7 +4,8 @@
 \alias{ols}
 \title{This function is a wrapper around \code{lm} and \code{coeftest}}
 \usage{
-ols(..., HC = "const", cluster = NULL, estimates = FALSE)
+ols(..., HC = "const", cluster = NULL, data_frame = FALSE,
+  as_attr = TRUE)
 }
 \arguments{
 \item{...}{(required) arguments passed to \code{lm}}
@@ -14,10 +15,12 @@ ols(..., HC = "const", cluster = NULL, estimates = FALSE)
 \item{cluster}{the name of the cluster variable in the \code{data.frame} passed to \code{lm} 
 for the cluster robust standard error calculations}
 
-\item{estimates}{return estimates in a \code{data.frame} or \code{coeftest} object (default)}
+\item{data_frame}{return estimates in a \code{data.frame} or \code{coeftest} object(default)}
+
+\item{as_attr}{return \eqn{R^2} and \eqn{N} as column or attributes when \code{data_frame=TRUE}?}
 }
 \value{
-a \code{data.frame} if \code{estimates=TRUE} otherwise a \code{coeftest} object. 
+a \code{data.frame} if \code{data_frame=TRUE} otherwise a \code{coeftest} object. 
 The \code{data.frame} object has two additional attributes "N" (the number of observations) and 
 "r2" the \eqn{R^2} of the model.
 }
