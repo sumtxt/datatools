@@ -29,4 +29,3 @@ Function to discretize a variable based on a selected quantile
  }
 
 }
-

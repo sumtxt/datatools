@@ -2,8 +2,8 @@
 % Please edit documentation in R/datatools-package.R
 \docType{package}
 \name{datatools-package}
-\alias{datatools}
 \alias{datatools-package}
+\alias{datatools}
 \title{Simple tools I tend to use a lot when working with data in R}
 \description{
 Feedback is very welcome!
@@ -20,4 +20,3 @@ Feedback is very welcome!
 \author{
 Moritz Marbach \email{marbach@ipz.uzh.ch}
 }
-

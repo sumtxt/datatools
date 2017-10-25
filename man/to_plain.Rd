@@ -30,4 +30,3 @@ This function substitutes ASCII characters for (many) none-ASCII characters, e.g
 \references{
 Source: \url{https://stackoverflow.com/questions/17517319/r-replacing-foreign-characters-in-a-string}
 }
-

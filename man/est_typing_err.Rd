@@ -59,4 +59,3 @@ Baddeley, A. D., and D. J. A. Longman. 1978. "The influence of length and freque
 \seealso{
 \code{\link{calc_beta_param}}
 }
-

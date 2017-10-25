@@ -29,4 +29,3 @@ This function sets all values larger than the selected quantile to the largest v
  }
 
 }
-

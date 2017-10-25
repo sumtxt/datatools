@@ -41,4 +41,3 @@ This function helps to re-order groups in a \code{ggplot2} plot. See example bel
  }
 
 }
-

@@ -20,7 +20,7 @@
 #' @author Moritz Marbach \email{marbach@ipz.uzh.ch}
 #'
 #' 
-#' 
+#' @useDynLib datatools
 #' @importFrom data.table rbindlist
 #' @importFrom dplyr dense_rank
 #' @importFrom sandwich vcovHC estfun sandwich

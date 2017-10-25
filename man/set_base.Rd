@@ -30,4 +30,3 @@ The function rescales all values such that the value \code{base} in \code{x} equ
 
 
 }
-

@@ -17,4 +17,3 @@ named vector with alpha/beta parameters.
 \description{
 Calculates Beta Distribution Parameters from its Mean and Variance Parameters
 }
-

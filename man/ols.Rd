@@ -51,11 +51,10 @@ x <- runif(100, -1, 1)
 
 
 }
+\seealso{
+\code{\link{lm}}, \code{\link{vcovHC}}
+}
 \author{
 The cluster robust standard error function \code{cl()} by Mahmood Ara at Stockholm University, see:
 	\url{https://thetarzan.wordpress.com/2011/06/11/clustered-standard-errors-in-r/}
 }
-\seealso{
-\code{\link{lm}}, \code{\link{vcovHC}}
-}
-

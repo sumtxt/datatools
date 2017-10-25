@@ -34,4 +34,3 @@ The function ignores all missing values.
 \references{
 Gelman, A. (2008). Scaling Regression Inputs by Dividing by two Standard Deviations. Statistics in Medicine 27(2865–2873).
 }
-

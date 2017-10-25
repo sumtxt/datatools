@@ -32,4 +32,3 @@ Sum of Vector Elements with alternative empty-set definition
 \seealso{
 \code{\link{sum}}
 }
-

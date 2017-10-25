@@ -1,16 +1,19 @@
 Package: datatools
 Title: Simple functions I tend to use a lot when working with data in R
-Version: 0.0.0.9000
-Date: 2016-12-11
-Author: Moritz Marbach" <marbach@ipz.uzh.ch [aut, cre]
-Maintainer: Moritz Marbach <marbach@ipz.uzh.ch>
+Version: 1.0.0
+Date: 2017-10-12
+Author: Moritz Marbach" <moritz.marbach@gess.ethz.ch [aut, cre]
+Maintainer: Moritz Marbach <moritz.marbach@gess.ethz.ch>
 Description: Helps me.
 Depends:
-    R (>= 3.3.1)
+    R (>= 3.3.1),
+    methods
 License: GPL-3
 Encoding: UTF-8
 Suggests:
     dplyr,
     tidyr
 LazyData: true
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
+Imports: Rcpp (>= 0.12.12)
+LinkingTo: Rcpp
