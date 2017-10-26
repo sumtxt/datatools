@@ -16,4 +16,4 @@
 #' 
 #' 
 #' @export
-make_id <- function(...) as.numeric(factor(paste(..., sep="")))
+make_id <- function(...) as.numeric(factor(paste(..., sep="_")))
