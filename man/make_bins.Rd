@@ -11,7 +11,7 @@ make_bins(x, breaks = NULL, quantiles = NULL)
 
 \item{breaks}{vector of breaks}
 
-\item{quantiles}{vector of quantiles or number of quantiles}
+\item{quantiles}{vector of quantiles or number of evenly spaced quantiles}
 }
 \value{
 integer vector
