@@ -8,6 +8,12 @@ Description: Helps me.
 Depends:
     R (>= 3.3.1),
     methods
+Imports: 
+	data.table (>= 1.11.2),
+	dplyr (>= 0.7.5),
+	sandwich (>= 2.4.0),
+	lmtest (>= 0.9-36),
+	Rcpp (>= 0.12.12)
 License: GPL-3
 Encoding: UTF-8
 Suggests:
@@ -15,5 +21,4 @@ Suggests:
     tidyr
 LazyData: true
 RoxygenNote: 6.0.1
-Imports: Rcpp (>= 0.12.12)
 LinkingTo: Rcpp
