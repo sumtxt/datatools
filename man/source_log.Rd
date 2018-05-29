@@ -4,7 +4,7 @@
 \alias{source_log}
 \title{Alternative to \code{source()} that also logs the output via \code{sink()}}
 \usage{
-source_log(file, ...)
+source_log(file, ..., sessionInfo = TRUE)
 }
 \arguments{
 \item{file}{file name}

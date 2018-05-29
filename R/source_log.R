@@ -15,7 +15,7 @@
 #'  \code{\link{source}} and \code{\link{sink}}
 #' 
 #' @export
-source_log <- function(file,...){
+source_log <- function(file,..., sessionInfo=TRUE){
 
 	# Construct logging file path/name
 	ts <- format(Sys.time(), "_%Y%m%d_%H%M%S")
@@ -29,7 +29,7 @@ source_log <- function(file,...){
 	timestamp()	
 	source(file, echo=TRUE, max.deparse.length=Inf, width.cutoff=500, ...)
 	timestamp()
-	if(info==TRUE) sessionInfo()
+	if(sessionInfo==TRUE) sessionInfo()
 	sink()
 	
 	}
