@@ -25,4 +25,6 @@
 #' @importFrom dplyr dense_rank
 #' @importFrom sandwich vcovHC estfun sandwich
 #' @importFrom lmtest coeftest
+#' @importFrom adagio assignment
+#' @importFrom stringdist stringdist
 NULL

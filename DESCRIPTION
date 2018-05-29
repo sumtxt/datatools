@@ -13,6 +13,7 @@ Imports:
 	dplyr (>= 0.7.5),
 	sandwich (>= 2.4.0),
 	lmtest (>= 0.9-36),
+	adagio (>= 0.7.1),
 	Rcpp (>= 0.12.12)
 License: GPL-3
 Encoding: UTF-8
