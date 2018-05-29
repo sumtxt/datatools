@@ -26,4 +26,3 @@
 #' @importFrom sandwich vcovHC estfun sandwich
 #' @importFrom lmtest coeftest
 NULL
-
