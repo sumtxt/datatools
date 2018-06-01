@@ -24,6 +24,7 @@ kill_format_tbl <- function() {
 
 print.tbl_df <<- function(x, ...) {
   print(head(as.data.frame(x),n=10), ...)
+  if (nrow(x)>10) cat("...", nrow(x), " more rows.\n", sep="")
   invisible(x)
 }
 
