@@ -4,21 +4,56 @@
 \alias{hungarian_merge}
 \title{Merge Two Data Frames using the Hungarian Method}
 \usage{
-hungarian_merge(x, y, by.x = NULL, by.y = NULL)
+hungarian_merge(x, y, by.x = NULL, by.y = NULL, FUN = NULL,
+  distance_col = FALSE, ...)
 }
 \arguments{
-\item{x, y}{data frames with the same number of observations, or objects to be coerced to one.}
+\item{x, y}{data frames where nrow(x) => nrow(y), or objects to be coerced to one.}
 
-\item{by.x, by.y}{specifications of the columns used for merging.}
+\item{by.x, by.y}{specifications of the columns used for merging without any duplicates.}
+
+\item{FUN}{function to be used to calculate the distance between potential matches.}
+
+\item{distance_col}{A distance column to output?}
+
+\item{...}{parameters passed to FUN}
 }
 \description{
-Merge two data frames by a common column, s.t. the Damerau-Levenshtein distance 
+Merge two data frames by a common column, s.t. (by default) the Damerau-Levenshtein distance 
 is minimized
 }
 \details{
 Finds the optimal matches using (a fast version of) the Hungarian method as implemented in 
-\code{\link[adagio]{assignment}}.
+\code{\link[adagio]{assignment}}. 
+
+The merge is performed s.t. that all rows of \code{y} are matched with exactly one 
+row of \code{x} leaving some rows in \code{x} unmatched.  
+
+The function is most useful if \code{x} and |code{y} are lists with different 
+but unique realizations of names from a third master list. For example, two lists 
+with county names spelled slightly different as in the example below.
 }
 \seealso{
 \code{\link[adagio]{assignment}} and \code{\link[stringdist]{stringdist}}
+ 
+
+# Matching German county names 
+
+dat1 <- data.frame(gem=c("Rosenheim", 
+	"Rosenheim, Stadt", "München", "München, Stadt") , size=rnorm(4))
+
+dat2 <- data.frame(kr=c("Rosenheim, Landkreis", 
+		"Rosenheim, kreisefreie Stadt", "München, Landeshauptstadt") , pop=rpois(3,10))
+
+hungarian_merge(dat1,dat2,by.x="gem", by.y="kr",distance_col=TRUE )
+
+
+# User-defined function 
+
+dat1 <- data.frame(id=c(12,5,1,100), size=rnorm(4))
+dat2 <- data.frame(id=c(10,1000,0,5), size=rnorm(4))
+
+hungarian_merge(dat1,dat2,by.x="id", 
+	by.y="id", FUN=function(x,y){abs(x-y)},
+	distance_col=TRUE )
 }
