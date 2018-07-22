@@ -28,21 +28,25 @@ cumsum1 <- function(x) {
     .Call('_datatools_cumsum1', PACKAGE = 'datatools', x)
 }
 
-#' Creates a unique ID for all uninterrupted series 
+#' Creates a unique ID for all uninterrupted series in a vector
 #'
 #' 
 #' @param x numeric vector to be used
+#' @param delta increment with default \code{delta}=0 
 #' 
 #' @return an integer vector 
 #' 
 #' @details
-#' Creates a unique, numeric ID for each uninterrupted sequence of equal values in a vector 
+#' If x[t] = (x[t-1] + delta) then ID(x[t])=ID(x[t-1]) 
+#'  otherwise ID(x[t]) = ID(x[t-1]) + 1. 
 #' 
 #' @examples 
 #'  \dontrun{
 #' 
 #'  x <- c(0,1,1,1,2,2,1,3,1,0,0)
+#'  y <- c(1998:2000,2005:2010)
 #' 
+#'  make_series_id(y, delta=1)
 #'  make_series_id(x)
 #' 
 #'  } 
@@ -50,7 +54,7 @@ cumsum1 <- function(x) {
 #' 
 #' 
 #' @export
-make_series_id <- function(x) {
-    .Call('_datatools_make_series_id', PACKAGE = 'datatools', x)
+make_series_id <- function(x, delta = 0) {
+    .Call('_datatools_make_series_id', PACKAGE = 'datatools', x, delta)
 }
 

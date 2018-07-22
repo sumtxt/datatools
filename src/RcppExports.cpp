@@ -17,20 +17,21 @@ BEGIN_RCPP
 END_RCPP
 }
 // make_series_id
-Rcpp::IntegerVector make_series_id(Rcpp::NumericVector x);
-RcppExport SEXP _datatools_make_series_id(SEXP xSEXP) {
+Rcpp::IntegerVector make_series_id(Rcpp::NumericVector x, double delta);
+RcppExport SEXP _datatools_make_series_id(SEXP xSEXP, SEXP deltaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::NumericVector >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(make_series_id(x));
+    Rcpp::traits::input_parameter< double >::type delta(deltaSEXP);
+    rcpp_result_gen = Rcpp::wrap(make_series_id(x, delta));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
     {"_datatools_cumsum1", (DL_FUNC) &_datatools_cumsum1, 1},
-    {"_datatools_make_series_id", (DL_FUNC) &_datatools_make_series_id, 1},
+    {"_datatools_make_series_id", (DL_FUNC) &_datatools_make_series_id, 2},
     {NULL, NULL, 0}
 };
 
