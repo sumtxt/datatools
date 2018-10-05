@@ -49,8 +49,10 @@
 #' 
 #'  
 #' @export
-hungarian_merge <- function(x,y, by.x=NULL, by.y=NULL, FUN=NULL, distance_col=FALSE, ...){
+hungarian_merge <- function(x,y, by.x=NULL, by.y=NULL, FUN=NULL, distance_col=FALSE, max_diff=Inf, C=1, ...){
 	
+	if(!(length(max_diff)==1 & is.numeric(max_diff))) stop("max_diff must be a scalar.")
+
 	x <- as.data.frame(x)
 	y <- as.data.frame(y)
 
@@ -75,7 +77,7 @@ hungarian_merge <- function(x,y, by.x=NULL, by.y=NULL, FUN=NULL, distance_col=FA
 		else { FUN <- get("stringdist", envir=environment(stringdist)) } 
 
 	dat <- merge(x[,c("id_x","name_x")], y[,c("id_y","name_y")], by=NULL)
-	dat[,'dist'] <- with(dat, FUN(name_x,name_y, ...))
+	dat[,'dist'] <- with(dat, FUN(name_x,name_y, ...)*C )
 	
 	dat <- dat[,c("id_x","id_y", "dist")]
 
@@ -100,11 +102,19 @@ hungarian_merge <- function(x,y, by.x=NULL, by.y=NULL, FUN=NULL, distance_col=FA
 	res <- data.frame(id_x=1:Kx, 
 		id_y=(1:Kx)[sol], stringsAsFactors=FALSE) 
 
-	# Add distance metric if requested
-	if(distance_col==TRUE){
-		res$diff <-  m[cbind(1:Kx,sol)]
+	# Distance metric 
+	res$diff <-  m[cbind(1:Kx,sol)]
+	
+	# Drop merges if max_diff smaller than diff 
+	res[res$diff>max_diff,"id_y"] <- NA
+	res[res$diff>max_diff,"diff"] <- NA
+
+	# Drop distance metric if not requested
+	if(distance_col!=TRUE){
+		res$diff <- NULL
 	} 
 
+	# Merge back information
 	res <- merge(res,x_,by=c("id_x"))
 	res <- merge(res,y_,by=c("id_y"), all=TRUE)
 
