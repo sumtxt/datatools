@@ -4,8 +4,17 @@
 \alias{hungarian_merge}
 \title{Merge Two Data Frames using the Hungarian Method}
 \usage{
-hungarian_merge(x, y, by.x = NULL, by.y = NULL, FUN = NULL,
-  distance_col = FALSE, ...)
+hungarian_merge(
+  x,
+  y,
+  by.x = NULL,
+  by.y = NULL,
+  FUN = NULL,
+  distance_col = FALSE,
+  max_diff = Inf,
+  C = 1,
+  ...
+)
 }
 \arguments{
 \item{x, y}{data frames where nrow(x) => nrow(y), or objects to be coerced to one.}
@@ -46,6 +55,7 @@ dat2 <- data.frame(kr=c("Rosenheim, Landkreis",
 		"Rosenheim, kreisefreie Stadt", "München, Landeshauptstadt") , pop=rpois(3,10))
 
 hungarian_merge(dat1,dat2,by.x="gem", by.y="kr",distance_col=TRUE )
+
 
 
 # User-defined function 

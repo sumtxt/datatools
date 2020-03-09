@@ -4,8 +4,7 @@
 \alias{ols}
 \title{This function is a wrapper around \code{lm} and \code{coeftest}}
 \usage{
-ols(..., HC = "const", cluster = NULL, data_frame = FALSE,
-  as_attr = TRUE)
+ols(..., HC = "const", cluster = NULL, data_frame = FALSE, as_attr = TRUE)
 }
 \arguments{
 \item{...}{(required) arguments passed to \code{lm}}

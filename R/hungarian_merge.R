@@ -38,6 +38,7 @@
 #' hungarian_merge(dat1,dat2,by.x="gem", by.y="kr",distance_col=TRUE )
 #' 
 #' 
+#' 
 #' # User-defined function 
 #' 
 #' dat1 <- data.frame(id=c(12,5,1,100), size=rnorm(4))
@@ -70,14 +71,11 @@ hungarian_merge <- function(x,y, by.x=NULL, by.y=NULL, FUN=NULL, distance_col=FA
 	x_ <- x
 	y_ <- y
 
-	colnames(x)[colnames(x)==by.x] <- "name_x"
-	colnames(y)[colnames(y)==by.y] <- "name_y"
-
 	if ( !is.null(FUN) ) { FUN <- match.fun(FUN) } 
 		else { FUN <- get("stringdist", envir=environment(stringdist)) } 
 
-	dat <- merge(x[,c("id_x","name_x")], y[,c("id_y","name_y")], by=NULL)
-	dat[,'dist'] <- with(dat, FUN(name_x,name_y, ...)*C )
+	dat <- merge(x[,c("id_x",by.x)], y[,c("id_y",by.y)], by=NULL)
+	dat[,'dist'] <- FUN(dat[,by.x],dat[,by.y], ...)*C
 	
 	dat <- dat[,c("id_x","id_y", "dist")]
 
