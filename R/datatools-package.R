@@ -1,23 +1,11 @@
 #'	
-#' 
-#' Feedback is very welcome! 
-#'
-#' 
-#' @details
-#' \tabular{ll}{
-#'		Package: \tab datatools\cr
-#'		Type: \tab Package\cr
-#'		Version: \tab 0.0.0.9000\cr
-#'		Date: \tab 2017-02-11\cr
-#'		License: \tab  GPL-3\cr
-#'		}
 #'
 #' @name datatools-package
 #' 
 #' @docType package
 #' @aliases datatools
 #' @title Simple tools I tend to use a lot when working with data in R
-#' @author Moritz Marbach \email{marbach@ipz.uzh.ch}
+#' @author Moritz Marbach \email{moritz.marbach@gess.ethz.ch}
 #'
 #' 
 #' @useDynLib datatools
@@ -27,4 +15,8 @@
 #' @importFrom lmtest coeftest
 #' @importFrom adagio assignment
 #' @importFrom stringdist stringdist
+#' @importFrom rlang dots_list
+#' @importFrom httr content POST GET
+#' @importFrom purrr map
+#' @importFrom tibble tibble as_tibble
 NULL

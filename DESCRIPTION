@@ -1,7 +1,7 @@
 Package: datatools
 Title: Simple functions I tend to use a lot when working with data in R
-Version: 1.1.1
-Date: 2018-04-18
+Version: 1.1.2
+Date: 2019-05-26
 Author: Moritz Marbach" <moritz.marbach@gess.ethz.ch [aut, cre]
 Maintainer: Moritz Marbach <moritz.marbach@gess.ethz.ch>
 Description: Helpful functions. 
@@ -9,18 +9,21 @@ Depends:
     R (>= 3.3.1),
     methods
 Imports: 
-	data.table (>= 1.12.8),
-	dplyr (>= 0.8.4),
-	sandwich (>= 2.4.0),
-	lmtest (>= 0.9-36),
-	adagio (>= 0.7.1),
-	Rcpp (>= 1.0.3),
-	stringdist (>= 0.9.5.2)
+	data.table,
+	dplyr,
+	rlang,
+	httr,
+	purrr,
+	tibble,
+	sandwich,
+	lmtest,
+	adagio,
+	Rcpp,
+	stringdist
 License: GPL-3
 Encoding: UTF-8
 Suggests:
-    dplyr,
-    tidyr
+    tidyverse
 LazyData: true
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 LinkingTo: Rcpp
