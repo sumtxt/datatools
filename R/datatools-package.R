@@ -10,7 +10,7 @@
 #' 
 #' @useDynLib datatools
 #' @importFrom data.table rbindlist
-#' @importFrom dplyr dense_rank
+#' @importFrom dplyr dense_rank select_if mutate_if
 #' @importFrom sandwich vcovHC estfun sandwich
 #' @importFrom lmtest coeftest
 #' @importFrom adagio assignment
@@ -19,4 +19,6 @@
 #' @importFrom httr content POST GET
 #' @importFrom purrr map
 #' @importFrom tibble tibble as_tibble
+#' @importFrom forcats fct_explicit_na
+#' @importFrom VIM gowerD
 NULL

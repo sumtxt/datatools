@@ -19,7 +19,9 @@ Imports:
 	lmtest,
 	adagio,
 	Rcpp,
-	stringdist
+	stringdist,
+	VIM,
+	forcats
 License: GPL-3
 Encoding: UTF-8
 Suggests:
