@@ -1,0 +1,8 @@
+inst/doc
+install.R
+doc
+Meta
+docs
+*.o
+*.so
+*.dll
