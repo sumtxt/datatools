@@ -10,11 +10,8 @@
 #' If there are two modes, qmode(x) takes the first. 
 #' 
 #' @examples 
-#'  \dontrun{
-#'
 #'  qmode(rpois(10, 1))
 #'  
-#'  }
 #' 
 #' 
 #' @export

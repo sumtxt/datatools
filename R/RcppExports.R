@@ -13,19 +13,17 @@
 #' cumulative sums of uninterrupted entries equal to 1 in an integer vector
 #' 
 #' @examples 
-#'  \dontrun{
 #' 
 #'  x <- c(0,1,1,1,0,0,1,1,1,0,0)
 #' 
 #'  cumsum1(x)
 #' 
-#'  } 
 #' 
 #' 
 #' 
 #' @export
 cumsum1 <- function(x) {
-    .Call('_datatools_cumsum1', PACKAGE = 'datatools', x)
+    .Call(`_datatools_cumsum1`, x)
 }
 
 #' Creates a unique ID for all uninterrupted series in a vector
@@ -41,7 +39,6 @@ cumsum1 <- function(x) {
 #'  otherwise ID(x[t]) = ID(x[t-1]) + 1. 
 #' 
 #' @examples 
-#'  \dontrun{
 #' 
 #'  x <- c(0,1,1,1,2,2,1,3,1,0,0)
 #'  y <- c(1998:2000,2005:2010)
@@ -49,12 +46,11 @@ cumsum1 <- function(x) {
 #'  make_series_id(y, delta=1)
 #'  make_series_id(x)
 #' 
-#'  } 
 #' 
 #' 
 #' 
 #' @export
 make_series_id <- function(x, delta = 0) {
-    .Call('_datatools_make_series_id', PACKAGE = 'datatools', x, delta)
+    .Call(`_datatools_make_series_id`, x, delta)
 }
 

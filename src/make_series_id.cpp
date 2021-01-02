@@ -14,7 +14,6 @@
 //'  otherwise ID(x[t]) = ID(x[t-1]) + 1. 
 //' 
 //' @examples 
-//'  \dontrun{
 //' 
 //'  x <- c(0,1,1,1,2,2,1,3,1,0,0)
 //'  y <- c(1998:2000,2005:2010)
@@ -22,7 +21,6 @@
 //'  make_series_id(y, delta=1)
 //'  make_series_id(x)
 //' 
-//'  } 
 //' 
 //' 
 //' 

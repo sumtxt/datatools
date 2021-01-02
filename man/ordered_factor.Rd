@@ -21,23 +21,10 @@ Creates an ordered factor based on order of another variable
 This function helps to re-order groups in a \code{ggplot2} plot. See example below.
 }
 \examples{
- \dontrun{
 
- require(ggplot2)
- require(dplyr)
-
- economics_long <- economics_long \%>\% group_by(variable) \%>\% 
-	 mutate( value01_mean=mean(value01) ) 
-
-	economics_long <- ungroup(economics_long) \%>\% 
-	 mutate(variable_mean_ordered = ordered_factor(as.character(variable),value01_mean) )
-
- ggplot(economics_long, aes(date, value01, colour = variable)) +
- 	geom_line()
-
- ggplot(economics_long, aes(date, value01, colour = variable_mean_ordered)) +
- 	geom_line()
-
- }
+val <- rpois(10,100)
+num <- sample(seq(1,10))
+	
+levels(ordered_factor(val, num))
 
 }

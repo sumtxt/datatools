@@ -10,14 +10,11 @@
 #' @seealso \code{\link{sum}}
 #' 
 #' @examples 
-#'  \dontrun{
 #' 
 #'  x <- c(NA,NA,NA)
 #'  sum(x,na.rm=TRUE)
 #'  sum0(x,na.rm=TRUE)
 #'  
-#'  }
-#' 
 #' @export
 sum0 <- function(x, na.rm=TRUE){
   if( sum(is.na(x))==length(x) ) return(NA)

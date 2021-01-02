@@ -20,14 +20,11 @@ across observations that are nested in groups and for some groups all observatio
 Sum of Vector Elements with alternative empty-set definition
 }
 \examples{
- \dontrun{
 
  x <- c(NA,NA,NA)
  sum(x,na.rm=TRUE)
  sum0(x,na.rm=TRUE)
  
- }
-
 }
 \seealso{
 \code{\link{sum}}

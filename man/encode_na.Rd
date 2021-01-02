@@ -20,11 +20,10 @@ Variables of class logical, character, factor, and ordered factor: Convert missi
 All other variables: Impute 0 and add a missing data indicator to data frame ("[varname]_na").
 }
 \examples{
-df <- tibble(a=1:5, b=LETTERS[1:5])
+df <- data.frame(a=1:5, b=LETTERS[1:5])
 df[['a']][1] <- NA
 df[['b']][4] <- NA
 encode_na(df)
-
 
 
 }

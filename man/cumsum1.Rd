@@ -20,13 +20,11 @@ Returns a vector whose elements are the
 cumulative sums of uninterrupted entries equal to 1 in an integer vector
 }
 \examples{
- \dontrun{
 
  x <- c(0,1,1,1,0,0,1,1,1,0,0)
 
  cumsum1(x)
 
- } 
 
 
 

@@ -18,14 +18,11 @@ Q(x, q)
 Function to discretize a variable based on a selected quantile
 }
 \examples{
- \dontrun{
 
  x <- runif(100,-1,1)
  y <- x^2 + rnorm(100)
  
  summary( lm(y ~ Q(x,0.25) ) )
  summary( lm(y ~ Q(x,0.75) ) )
- 
- }
 
 }

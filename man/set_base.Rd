@@ -21,12 +21,10 @@ Rescales vector to base value
 The function rescales all values such that the value \code{base} in \code{x} equals 1 in the returned vector.
 }
 \examples{
- \dontrun{
 
  x <- sort(rpois(10, 5))
- tr(x,3)
+ set_base(x,3)
  
- }
 
 
 }

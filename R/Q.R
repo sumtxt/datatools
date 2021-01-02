@@ -6,15 +6,12 @@
 #' @return \code{vector} with a discretized version of x. 
 #' 
 #' @examples 
-#'  \dontrun{
 #' 
 #'  x <- runif(100,-1,1)
 #'  y <- x^2 + rnorm(100)
 #'  
 #'  summary( lm(y ~ Q(x,0.25) ) )
 #'  summary( lm(y ~ Q(x,0.75) ) )
-#'  
-#'  }
 #' 
 #' @export
 Q <- function(x,q){

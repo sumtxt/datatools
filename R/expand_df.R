@@ -20,8 +20,8 @@
 #' @author Modified version of \code{expand.dft} in the 
 #'    \code{kmmisc} package by Kevin Middleton which is based
 #'   on Marc Schwartz' version from the r-help mailing
-#'   list. Uses rindlist() from \code{data.table} package to speed-up the function. 
-#'
+#'   list. 
+#' 
 #' @seealso \code{\link{table}}
 #'
 #' @examples
@@ -31,7 +31,8 @@
 #' OCAD <- expand_df(OCAD, col.exp = "Count")
 #' table(OCAD)
 #'
-#' @export
+#'@importFrom dplyr bind_rows
+#'@export
 expand_df <- function(x,
                        col.exp,
                        na.strings = "NA",
@@ -55,11 +56,11 @@ expand_df <- function(x,
   # Get the column name if col.exp is numeric
   if (class(col.exp) == "numeric") col.exp <- names(x)[col.exp]
 
-  # Frequencies to expand via rep() + rbindlist
+  # Frequencies to expand via rep() + bind_rows
   to.expand <- x[, col.exp]
 
   DF <- sapply(1:nrow(x), function(i) x[rep(i, each = to.expand[i]), ], simplify = FALSE)
-  DF <- as.data.frame(rbindlist(DF))
+  DF <- as.data.frame(bind_rows(DF))
   DF <- subset(DF, select = -(get(col.exp)))
 
   for (i in 1:ncol(DF)) {

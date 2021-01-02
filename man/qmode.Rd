@@ -20,11 +20,8 @@ If NA is mode, then qmode(x)=NA.
 If there are two modes, qmode(x) takes the first.
 }
 \examples{
- \dontrun{
-
  qmode(rpois(10, 1))
  
- }
 
 
 }

@@ -16,13 +16,10 @@ vector that contains unique numeric id sequence starting with 0 up to K.
 Creates a unique, numeric ID sequence based on a set of variables
 }
 \examples{
- \dontrun{
 
- require(dplyr)
+library(tidyverse)
+mtcars \%>\% mutate( id = make_id(cyl, vs) )
 
- mtcars \%>\% mutate( id = make_id(cyl, vs) )
-
- } 
 
 
 

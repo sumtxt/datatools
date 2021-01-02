@@ -12,14 +12,16 @@
 #' \code{data.frame}
 #' 
 #' @examples 
-#' df <- tibble(a=1:5, b=LETTERS[1:5])
+#' df <- data.frame(a=1:5, b=LETTERS[1:5])
 #' df[['a']][1] <- NA
 #' df[['b']][4] <- NA
 #' encode_na(df)
 #' 
 #' 
-#' 
-#' @export
+#'@importFrom dplyr select_if 
+#'@importFrom dplyr mutate_if
+#'@importFrom forcats fct_explicit_na
+#'@export
 encode_na <- function(df){
 	dat_na <- is.na(select_if(df, is_num))
 	if(!is.null(dat_na)){

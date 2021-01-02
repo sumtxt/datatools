@@ -21,11 +21,8 @@ Top-coding values in a vector
 This function sets all values larger than the selected quantile to the largest value of the remaining values.
 }
 \examples{
- \dontrun{
 
  x <- sort(rnorm(10))
  topcode(x)
  
- }
-
 }
