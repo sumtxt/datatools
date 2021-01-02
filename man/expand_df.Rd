@@ -46,5 +46,5 @@ See
 Modified version of \code{expand.dft} in the 
    \code{kmmisc} package by Kevin Middleton which is based
   on Marc Schwartz' version from the r-help mailing
-  list. Uses rindlist() from \code{data.table} package to speed-up the function.
+  list.
 }
